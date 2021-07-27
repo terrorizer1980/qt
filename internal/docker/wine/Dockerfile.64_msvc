@@ -21,7 +21,7 @@ RUN mv $HOME/.wine/drive_c/go $HOME/.wine/drive_c/go_boot && mv $HOME/.wine/driv
 RUN cd $HOME/.wine/drive_c/go/src && wine cmd /c make.bat && git reset --hard && rm -rf ../.git
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20210114
 LABEL maintainer therecipe
 
 ENV USER user
