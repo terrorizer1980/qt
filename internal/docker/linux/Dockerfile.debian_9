@@ -1,4 +1,4 @@
-FROM debian:9.0 as base
+FROM debian:stretch-20211201 as base
 
 ENV USER user
 ENV HOME /home/$USER
@@ -8,7 +8,7 @@ RUN apt-get -qq update && apt-get --no-install-recommends -qq -y install ca-cert
 RUN GO=go1.13.4.linux-amd64.tar.gz && curl -sL --retry 10 --retry-delay 60 -O https://dl.google.com/go/$GO && tar -xzf $GO -C /usr/local
 RUN /usr/local/go/bin/go get -tags=no_env github.com/therecipe/qt/cmd/...
 
-FROM debian:9.0
+FROM debian:stretch-20211201
 LABEL maintainer therecipe
 
 ENV USER user
