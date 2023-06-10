@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20210416 as base
 
 ENV USER user
 ENV HOME /home/$USER
@@ -9,7 +9,7 @@ RUN GO=go1.12.9.linux-amd64.tar.gz && curl -sL --retry 10 --retry-delay 60 -O ht
 RUN /usr/local/go/bin/go get -tags=no_env github.com/therecipe/qt/cmd/...
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20210416
 LABEL maintainer therecipe
 
 ENV USER user
