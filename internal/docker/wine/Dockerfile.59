@@ -9,7 +9,7 @@ RUN find $HOME/.wine/drive_c/Qt/Qt5.9.6/5.9.6/mingw53_32 -name "*.exe" -size +7M
 RUN find $HOME/.wine/drive_c/Qt/Qt5.9.6/Docs -type f ! -name "*.index" -delete
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20210416
 LABEL maintainer therecipe
 
 ENV USER user
