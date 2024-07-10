@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20201014 as base
 
 ENV USER user
 ENV HOME /home/$USER
@@ -10,7 +10,7 @@ COPY env_darwin_amd64_513.zip $GOPATH/src/github.com/therecipe/env_darwin_amd64_
 RUN cd $GOPATH/src/github.com/therecipe && unzip env_darwin_amd64_513.zip
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20201014
 LABEL maintainer therecipe
 
 ENV USER user
