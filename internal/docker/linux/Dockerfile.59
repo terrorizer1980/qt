@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20201014 as base
 
 ENV USER user
 ENV HOME /home/$USER
@@ -18,7 +18,7 @@ RUN apt-get -qq update && apt-get --no-install-recommends -qq -y install binutil
 RUN find /opt/Qt5.9.6/5.9.6/gcc_64 -type f ! -name "*.a" ! -name "*.la" ! -name "*.prl" -name "lib*" -exec strip -s {} \;
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20201014
 LABEL maintainer therecipe
 
 ENV USER user
