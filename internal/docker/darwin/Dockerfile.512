@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20201014 as base
 
 RUN apt-get -qq update && apt-get --no-install-recommends -qq -y install curl cmake file git build-essential xz-utils software-properties-common apt-transport-https
 
@@ -14,7 +14,7 @@ RUN cd /osxcross && OSX_VERSION_MIN=10.12 UNATTENDED=1 ./build.sh
 RUN cd /osxcross && ./target/bin/o64-clang++-libc++ -o osxcross ./oclang/test_libcxx.cpp
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20201014
 LABEL maintainer therecipe
 
 ENV USER user
