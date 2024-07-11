@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20201014 as base
 
 RUN apt-get -qq update && apt-get --no-install-recommends -qq -y install ca-certificates git pkg-config
 
@@ -13,7 +13,7 @@ RUN git clone -q --depth 1 -b 5.13 --recursive https://code.qt.io/qt/qt5.git /op
 RUN cd /opt/qt5 && ./configure -prefix /opt/Qt/5.13.0/gcc_64 -confirm-license -opensource -static -qt-zlib -qt-libpng -qt-libjpeg -qt-xcb -sysconfdir /etc/xdg -dbus-runtime -openssl-runtime -opengl -optimize-size -skip qtwebengine -skip qtfeedback -skip qtpim -skip qtdocgallery -nomake tests -nomake examples && make -j $(grep -c ^processor /proc/cpuinfo) && make install -j $(grep -c ^processor /proc/cpuinfo)
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20201014
 LABEL maintainer therecipe
 
 COPY --from=base /opt/Qt/5.13.0 /opt/Qt/5.13.0
