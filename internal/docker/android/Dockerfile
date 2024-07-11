@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as base
+FROM ubuntu:xenial-20201014 as base
 
 ENV USER user
 ENV HOME /home/$USER
@@ -27,7 +27,7 @@ RUN mkdir -p $HOME/openssl-1.1.1a-x86 && mv $HOME/openssl-1.1.1a/*.so* $HOME/ope
 RUN find $HOME/openssl-1.1.1a-* -type f -exec llvm-strip --strip-all {} \;
 
 
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20201014
 LABEL maintainer therecipe
 
 ENV USER user
